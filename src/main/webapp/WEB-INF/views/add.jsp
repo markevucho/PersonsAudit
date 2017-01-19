@@ -1,0 +1,49 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Add new person</title>
+<style>
+.error {
+	color: #986aff;
+}
+</style>
+
+</head>
+<body>
+ <div align="center">
+<h1>Add New Person</h1>
+
+<sf:form modelAttribute="person" method="post" action="/Persons/persons">
+<table cellpadding="8">
+<tr>
+	<th><sf:label path="name">Name</sf:label></th>
+	<td><sf:input path="name"/></td>
+	<td><sf:errors path="name" cssClass="error"/></td>
+</tr> 
+<tr>
+	<th><sf:label path="surname">Surname</sf:label></th>
+	<td><sf:input path="surname"/></td>
+	<td><sf:errors path="surname" cssClass="error"/></td>
+</tr>
+<tr>
+	<th><sf:label path="birthday">Birthday</sf:label></th>
+	<td><sf:input path="birthday"/></td>
+	<td><sf:errors path="birthday" cssClass="error"/></td>
+</tr>
+<tr>
+	<th><sf:label path="money">Money</sf:label></th>
+	<td><sf:input path="money" pattern="\-?\d+(\.\d{0,})?"/></td>
+	<td><sf:errors path="money" cssClass="error"/></td>
+</tr>
+
+</table>
+<br>
+<input type="submit" value="Save">
+</sf:form>
+</div>
+</body>
+</html>
